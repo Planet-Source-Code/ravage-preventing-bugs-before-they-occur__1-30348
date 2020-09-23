@@ -1,0 +1,185 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>PREVENTING BUGS BEFORE THEY OCCUR</title>
+</head>
+
+<body>
+
+<p><font size="4"><b>PREVENTING BUGS BEFORE THEY OCCUR</b></font></p>
+<p>&nbsp;&nbsp;&nbsp;<font size="4"><b> </b></font><font size="3">Perhaps the
+best way to fix a bug is to keep the bug from happening in the first
+place.&nbsp; For the most part, the techniques for preventing bugs are common
+sense things (or would be common sense if common sense were common) that most
+programmers would do if they took the time to think about it.&nbsp; But let's
+face it, with increasing demands on our time, we don't always have the time we
+need to pay such attention to detail!</font></p>
+<p><font size="4"><b>USING OPTION EXPLICIT</b></font></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="4"><b> </b></font><font size="3">Most
+programming languages in use today require that you declare a variable before
+you use it.&nbsp; In some languages, declaring variables is done to make it
+easier to write the compiler.&nbsp; With other languages, programmers declare
+variables just for documentation purposes; others do it simply because it was
+always done that way.&nbsp; But I've found that declaring a variable does two
+things: it ensures that you get the variable type you want, and it prevents you
+from misspelling the variable's name.&nbsp; Sometimes, finding a misspelled
+variable can be very difficult, since <i>Clock </i>and<i> C1ock </i>look the
+same to you and me but not to the compiler.&nbsp; By default, Visual Basic will
+create a variable automatically the first time you use it.&nbsp; To disable this
+feature, you need to include Option Explicit at the top of each module in you
+program.&nbsp; For new projects, you can set the Visual Basic IDE option Require
+Variable Declaration (in the Options dialog box).&nbsp; For existing projects,
+you can simply enter Option Explicit into the Global Declaration section of any
+module.&nbsp; The big limitation of Option Explicit is that it applies only to a
+given module, not to the entire project.&nbsp; So in a complex project with a
+lot of forms and classes, you need to ensure that each module has Option
+Explicit included.&nbsp;&nbsp;</font></p>
+<p style="line-height: 100%"><b><font size="4">APPLYING THE KISS PRINCIPLE</font></b></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="4"><b> </b></font><font size="3">A
+long time ago, I learned about the old KISS (Keep It Simple, Stupid)
+principle.&nbsp; In the case of Visual Basic, the idea is that, in the long run,
+an overly complex program will cause more problems than a simple program.&nbsp;
+A simple program is easier to understand, thus making later modifications and
+debugging a whole lot easier (especially if someone else is doing those
+modifications).&nbsp; A simple program may even be more efficient, since it is
+not carrying around a lot of baggage caused by extra features that aren't
+used.&nbsp; The simple-is-better philosophy does not always work, however.&nbsp;
+A heap sort is more complex than a bubble sort, but the results are often worth
+it.&nbsp; Yet, true believers in the KISS principle will say that using a
+prepackaged sort routine will give you even better results with less code to go
+wrong.</font></p>
+<p style="line-height: 100%"><b><font size="4">APPLYING THE SMILE PRINCIPLE</font></b></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="4"> </font><font size="3">Like
+very complex programs, large blocks of code can also lead to problems.&nbsp;
+Someone once told me that if you can't see an entire subroutine or function,
+then it's too large.&nbsp; I call this the SMILE (Simple Makes It Lots Easier)
+principle.&nbsp; Typically, I'll try to fit the entire routine in about 30
+lines.&nbsp; So, if I can't fit the code into that 30 lines, I'll divide the
+code into a few private subroutines and call them from the original.&nbsp;
+Occasionally, I find that I want to use a large subroutine.&nbsp; This usually
+happens when I have many assignment statements or subroutine calls, or I have a
+Select Case statement or If ... Then ... ElseIf statement with many individual
+conditions.&nbsp; In the first situation, I try to group the statements into
+meaningful chunks.&nbsp; In the second situation, I try to limit myself to less
+than a dozen statements in each of the individual cases.&nbsp;&nbsp;</font></p>
+<p style="line-height: 100%"><b><font size="4">TAKING ADVANTAGE OF OBJECT-ORIENTED
+PROGRAMMING</font></b></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="4"><b> </b></font><font size="3">Object-oriented
+programming means many things to many people (especially those in the marketing
+department).&nbsp; The answer to the question &quot;Is Visual Basic
+object-oriented?&quot; doesn't really matter.&nbsp; What matters is that when
+you break your program into chunks, you programs become more reliable.&nbsp; By
+using well-defined interfaces, you are forced to think about how the chunk will
+be used.&nbsp; Since you can't cross boundaries and change a particular value
+inside a chunk even though you think it's safe, you may need to include an
+additional interface in the future.&nbsp; But at least you will know all of the
+code that could possibly modify the chunk's data.&nbsp; So if the chunk's data
+gets corrupted, this approach simplifies the debugging process
+considerably.&nbsp; The other advantage of chunks is that they are easy to build
+and easy to test by themselves.&nbsp; Once they have been tested, you can build
+other components using these chunks.&nbsp; Since your chunks communicate through
+well defined interfaces, you can check for invalid parameters and trap more
+errors before they occur.&nbsp; Of course, you also get the fundamental
+advantage of object-oriented programming.&nbsp; When you need to change an
+object's architecture, your existing program will continue to work without
+changes, as long as the interfaces continue to work the same way.&nbsp; Also,
+you can use the object in more than one place, which will help to reduce your
+overall programming effort.&nbsp;&nbsp;</font></p>
+<p style="line-height: 100%"><b><font size="4">USING COMMENTS AND CODING
+CONVENTIONS</font></b></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="4"> </font><font size="3">Comments
+and coding conventions are also important to minimizing problems in you
+code.&nbsp; While these things may not prevent bugs per se, they will help the
+next person who comes along to understand what you did and why you did it.&nbsp;
+Then if something should go wrong, it will be easier for that next person to
+rectify the problem.&nbsp; There is more to writing comments than simply
+repeating what is obvious from reading the code.&nbsp; Writing good comments
+takes a little time and some thought, but the end result should be useful to
+anyone (including yourself) who may read those comments in the
+future.&nbsp;&nbsp;</font></p>
+<p style="line-height: 100%"><b><font size="4">FOLLOWING CODING CONVENTIONS</font></b></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="4"> </font><font size="3">Coding
+conventions are another useful tool for preventing bugs.&nbsp; Coding
+conventions come in a couple of forms: they provide rules for naming variables
+and routines, and they identify which statements you want to avoid while
+programming.&nbsp; Both forms combine to create a style that must be comfortable
+for you to use.&nbsp;&nbsp;</font></p>
+<p style="line-height: 100%"><font size="3">&nbsp;&nbsp;&nbsp;<b> VARIABLE AND
+ROUTINE NAMES</b></font></p>
+<p style="line-height: 100%"><font size="4">&nbsp;&nbsp;&nbsp; </font><font size="3">Microsoft
+recommends a rather complex way to prefix variables.&nbsp; While this convention
+conveys a lot of information about your variables, it makes them somewhat
+unreadable and definitely difficult to remember.&nbsp; Even though Microsoft
+makes this suggestion, you might notice that the properties for things like the
+TextBox and ListBox controls refer to the Text property rather than the strText
+property.&nbsp; The same goes for the rest of the properties and methods for the
+other controls and objects.&nbsp; I suggest that you use meaningful names but
+leave the type information off the variable name.&nbsp; Subroutines and
+functions are two places where the more descriptive you make the name, the less
+likely you are to use the wrong one.&nbsp; Properties, methods, and events in
+your own user controls should also be descriptive.&nbsp; After all, when you
+compile your program into machine code, it doesn't matter in the least whether
+you used two characters or twenty characters!&nbsp;&nbsp;&nbsp;</font></p>
+<p style="line-height: 100%"><font size="3">&nbsp;&nbsp;&nbsp;<b> STATEMENTS TO
+AVOID</b></font></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="4"> </font><font size="3">Visual
+Basic includes a variety of different statements, many of which overlap other
+statements in terms of functionality.&nbsp; I strongly suggest that you choose a
+subset of these statements and use them, while ignoring the others.&nbsp; This
+means you'll need to remember the syntax for fewer statements, and you'll become
+more comfortable with the ways that you use those statements.&nbsp; For
+instance, you can use For/Next, Do Until/Loop, Do While/Loop, and While/Wend to
+perform loops in your code.&nbsp; There is no reason to use all four.&nbsp; I
+suggest you pick one style and use it consistently.&nbsp; Personally, I prefer
+the Do While/Loop structure, but I find myself using the For/Next anytime I'm
+dealing with a collection of objects (For Each), or when I need to perform a
+process a fixed number of times (For I = 1 to 10).&nbsp; I never use the Do
+Until/Loop or the While/Wend statements.&nbsp; I also recommend avoiding the
+Gosub/Return statement and the GoTo statement.&nbsp; Both are holdovers from
+BASIC's early days.&nbsp; Gosub/Return isn't really needed in Visual Basic,
+where you can declare real subroutines, and GoTo is against every structured
+programming rule ever written.&nbsp; I've debugged many programs written by
+various programmers who used the GoTo statement, and I've frequently found it
+faster to rewrite the entire program rather that try to fix it.&nbsp;&nbsp;</font></p>
+<p style="line-height: 100%"><b><font size="4">BEING A LAZY PROGRAMMER</font></b></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="3"> After reading
+about the KISS and SMILE principles, object-oriented programming, and comments
+and coding conventions, you may be wondering, &quot;What does this have to do
+with debugging my programs?&quot;&nbsp; The answer is that following good, solid
+programming practices is key to creating programs that require less debugging
+and that can more easily be debugged.&nbsp; As long as I'm on my soapbox, I'm
+going to suggest a general philosophy that will help you eliminate bugs before
+they become bugs.&nbsp; I call it the Lazy Programmer approach.&nbsp; Here are
+the Ten Commandments of a Lazy Programmer:</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="3"> 1.)&nbsp; Think
+about what you want to do before you write any code.</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="3"> 2.)&nbsp; Make it
+work the first time - you prefer not to do it again.</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="3"> 3.)&nbsp; Don't
+make a program more complicated than necessary because this may introduce more
+problems into the program in the long run.</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="3"> 4.)&nbsp; Write
+modular programs because they are easier to test and debug.</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp;&nbsp;<font size="3"> 5.)&nbsp; Use a
+wide variety of tools to reduce the amount of work required to create the program
+and to increase the reliability of the final product.</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp; <font size="3"> 6.)&nbsp; Reuse code
+where possible, since the code has already been written and is known to work
+properly.</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp; <font size="3"> 7.)&nbsp; Write the
+least amount of code to solve the problem.</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp; <font size="3"> 8.)&nbsp; Use a lot of
+comments for complex code, and make sure that you provide a good overview of how
+the program functions.</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp; <font size="3"> 9.)&nbsp; Use good
+coding conventions so that comments aren't necessary for simple tasks.</font></p>
+<p style="line-height: 100%">&nbsp;&nbsp; <font size="3"> 10.)&nbsp; Use Visual
+Basic to write Windows programs.&nbsp; </font></p>
+
+</body>
+
+</html>
